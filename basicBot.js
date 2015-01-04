@@ -7,7 +7,7 @@
 
 (function () {
 
-    API.getWaitListPosition = function(id){
+    API.getWaitListPosition = function(id){c
         if(typeof id === 'undefined' || id === null){
             id = API.getUser().id;
         }
@@ -1553,7 +1553,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat(subChat(basicBot.chat.commandslink, {botname: basicBot.settings.botName, link: basicBot.cmdLink}));
+                        API.sendChat("/me My Commands: http://git.io/AZ8QZQ");
                     }
                 }
             },
@@ -1617,7 +1617,7 @@
 
             cycleCommand: {
                 command: 'cycle',
-                rank: 'manager',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
