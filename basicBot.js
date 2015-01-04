@@ -7,7 +7,7 @@
 
 (function () {
 
-    API.getWaitListPosition = function(id){c
+    API.getWaitListPosition = function(id){
         if(typeof id === 'undefined' || id === null){
             id = API.getUser().id;
         }
