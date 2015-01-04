@@ -659,7 +659,7 @@
                         var messageNumber = basicBot.room.roomstats.songCount % basicBot.settings.intervalMessages.length;
                         msg = basicBot.settings.intervalMessages[messageNumber];
                     }
-                    API.sendChat('/me ' + msg);
+                    API.sendChat(msg);
                 }
             },
             updateBlacklists: function () {
@@ -800,7 +800,7 @@
 
             if (basicBot.settings.voteSkip) {
                 if ((mehs - woots) >= (basicBot.settings.voteSkipLimit)) {
-                    API.sendChat('/me @' + dj.username + ', your song has exceeded the maximum amount of mehs needed to skip.');
+                    API.sendChat('@' + dj.username + ', your song has exceeded the maximum amount of mehs needed to skip.');
                     API.moderateForceSkip();
                 }
             }
@@ -1553,7 +1553,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat("/me My Commands: http://git.io/AZ8QZQ");
+                        API.sendChat("My Commands: http://git.io/AZ8QZQ");
                     }
                 }
             },
@@ -1678,15 +1678,15 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me Voteskip limit is currently set to a difference of ' + basicBot.settings.voteSkipLimit + ' mehs.');
+                        if (msg.length <= cmd.length + 1) return API.sendChat('Voteskip limit is currently set to a difference of ' + basicBot.settings.voteSkipLimit + ' mehs.');
                         var argument = msg.substring(cmd.length + 1);
                         if (!basicBot.settings.voteSkip) basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
                         if (isNaN(argument)) {
-                            API.sendChat('/me Invalid voteskip limit, please try again using a number to signify the number of mehs.');
+                            API.sendChat('Invalid voteskip limit, please try again using a number to signify the number of mehs.');
                         }
                         else {
                             basicBot.settings.voteSkipLimit = argument;
-                            API.sendChat('/me Voteskip limit set to ' + basicBot.settings.voteSkipLimit + '.');
+                            API.sendChat('Voteskip limit set to ' + basicBot.settings.voteSkipLimit + '.');
                         }
                     }
                 }
@@ -1702,11 +1702,11 @@
                     else {
                         if (basicBot.settings.voteSkip) {
                             basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
-                            API.sendChat('/me [@' + chat.un + '] voteskip disabled.');
+                            API.sendChat('[@' + chat.un + '] voteskip disabled.');
                         }
                         else {
                             basicBot.settings.motdEnabled = !basicBot.settings.motdEnabled;
-                            API.sendChat('/me [@' + chat.un + '] voteskip enabled.');
+                            API.sendChat('[@' + chat.un + '] voteskip enabled.');
                         }
                     }
                 }
@@ -2184,7 +2184,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me MotD: ' + basicBot.settings.motd);
+                        if (msg.length <= cmd.length + 1) return API.sendChat('MotD: ' + basicBot.settings.motd);
                         var argument = msg.substring(cmd.length + 1);
                         if (!basicBot.settings.motdEnabled) basicBot.settings.motdEnabled = !basicBot.settings.motdEnabled;
                         if (isNaN(argument)) {
@@ -2530,7 +2530,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        API.sendChat('/me This bot was made by ' + botCreator + '.');
+                        API.sendChat('This bot was made by ' + botCreator + '.');
                     }
                 }
             },
@@ -2544,7 +2544,7 @@
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
                         var from = chat.un;
-                        var msg = '/me [@' + from + '] ';
+                        var msg = '[@' + from + '] ';
 
                         msg += basicBot.chat.afkremoval + ': ';
                         if (basicBot.settings.afkRemoval) msg += 'ON';
